@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MCP Aggregation Agent</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>MCP Multi-Model Agent</h1>
+        <p>Send a message and receive a combined response from multiple LLMs.</p>
+      </header>
+
+      <main>
+        <section class="config-panel">
+          <h2>LLM API Settings</h2>
+          <p class="config-description">
+            Configure the OpenAI-compatible endpoint used for aggregation. Values
+            are stored in this browser session only.
+          </p>
+          <div class="config-grid">
+            <label class="config-field">
+              <span>API Base URL</span>
+              <input
+                id="api-base"
+                type="text"
+                placeholder="https://api.openai.com/v1"
+                autocomplete="off"
+              />
+            </label>
+            <label class="config-field">
+              <span>API Key</span>
+              <input
+                id="api-key"
+                type="password"
+                placeholder="sk-..."
+                autocomplete="off"
+              />
+            </label>
+            <label class="config-field">
+              <span>Main Model</span>
+              <input
+                id="main-model"
+                type="text"
+                placeholder="gpt-4o-mini"
+                autocomplete="off"
+              />
+            </label>
+            <label class="config-field">
+              <span>Emotion Model</span>
+              <input
+                id="emotion-model"
+                type="text"
+                placeholder="gpt-4o-mini"
+                autocomplete="off"
+              />
+            </label>
+            <label class="config-field">
+              <span>System Model</span>
+              <input
+                id="system-model"
+                type="text"
+                placeholder="gpt-4o-mini"
+                autocomplete="off"
+              />
+            </label>
+          </div>
+          <div class="config-actions">
+            <button id="save-settings" type="button">Save for session</button>
+            <button id="clear-settings" type="button" class="ghost-button">
+              Clear
+            </button>
+            <span id="settings-feedback" class="settings-feedback" aria-live="polite"></span>
+          </div>
+        </section>
+
+        <section class="input-panel">
+          <textarea
+            id="user-input"
+            placeholder="Type your request here..."
+            rows="4"
+          ></textarea>
+          <button id="send-btn">Send</button>
+        </section>
+
+        <section class="results" id="results">
+          <article class="result-card">
+            <h2>Main Reply</h2>
+            <pre id="reply">—</pre>
+          </article>
+          <article class="result-card">
+            <h2>Emotion Analysis</h2>
+            <pre id="emotion">—</pre>
+          </article>
+          <article class="result-card">
+            <h2>System Variables</h2>
+            <pre id="variables">—</pre>
+          </article>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Backend: <code>uvicorn server.main:app --reload --port 8850</code> · Visit on
+          <a href="http://localhost:8850" target="_blank">localhost:8850</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,181 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle, #0f172a 0%, #020617 100%);
+  color: #f8fafc;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container {
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 16px;
+  padding: 32px;
+  width: min(900px, 90vw);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(18px);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0;
+  color: #cbd5f5;
+}
+
+.config-panel {
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.15);
+}
+
+.config-panel h2 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.config-description {
+  margin: 0 0 16px;
+  color: #cbd5f5;
+  font-size: 0.95rem;
+}
+
+.config-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.config-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+}
+
+.config-field input {
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.55);
+  color: inherit;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+
+.config-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.ghost-button {
+  background: transparent;
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: none;
+}
+
+.ghost-button:hover:not(:disabled) {
+  box-shadow: 0 10px 30px -12px rgba(148, 163, 184, 0.5);
+}
+
+.settings-feedback {
+  min-height: 1.25em;
+  font-size: 0.85rem;
+  color: #38bdf8;
+}
+
+.input-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+textarea {
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  padding: 16px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 120px;
+  background: rgba(15, 23, 42, 0.5);
+  color: inherit;
+}
+
+button {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #0f172a;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px -12px rgba(96, 165, 250, 0.6);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.result-card {
+  background: rgba(30, 41, 59, 0.75);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.15);
+}
+
+.result-card h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  margin: 0;
+}
+
+footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+footer a {
+  color: #60a5fa;
+}
