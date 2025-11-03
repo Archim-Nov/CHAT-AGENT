@@ -57,7 +57,7 @@ class MCPAgent:
 
     def __init__(self, bus: MCPBus | None = None) -> None:
         self.bus = bus or MCPBus()
-        self._default_client = AsyncOpenAI()
+        self._default_client: AsyncOpenAI | None = None
 
     async def setup(self) -> None:
         """Register handlers on the bus."""
@@ -154,6 +154,9 @@ class MCPAgent:
 
         if client_kwargs:
             return AsyncOpenAI(**client_kwargs)
+
+        if self._default_client is None:
+            self._default_client = AsyncOpenAI()
 
         return self._default_client
 
